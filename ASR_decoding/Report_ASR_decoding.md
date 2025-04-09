@@ -79,11 +79,17 @@ Parameters:
 - `alpha=1.5` & `alpha=0.5` & `alpha=0`
 - `beta=1.0`
 
-<img src="tables/exp_alpha_1_5.png" alt="alt text" width="200">
-<img src="tables/exp_alpha_0_5.png" alt="alt text" width="200">
-<img src="tables/exp_alpha_0.png" alt="alt text" width="200">
+<img src="tables/exp_alpha_1_5.png" alt="alt text" width="300">
 
-*WER table. alpha=1 & alpha=0.5 & alpha=0 respectively*
+*WER table. alpha=1*
+
+<img src="tables/exp_alpha_0_5.png" alt="alt text" width="300">
+
+*WER table. alpha=0.5*
+
+<img src="tables/exp_alpha_0.png" alt="alt text" width="300">
+
+*WER table. alpha=0*
 
 We expect changes in alpha to affect the quality of beam lm and beam lm rescore decoding. As we can see, the alpha=1.5 significaintly increased WER for beam_lm decoding. The alpha=0.5 and alpha=0, however improved quality with the latter making a greater change. It would make sense to continue the experiments with alpha=0. Likely the LM model is domain-mismatched and does not provide any benefit to the model.
 
