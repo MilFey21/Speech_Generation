@@ -1,0 +1,41 @@
+[project]
+authors = [{name = "Milena", email = "123@mail.ru"}]
+description = "Add a short description here"
+name = "ASR_numbers"
+requires-python = "==3.11"
+version = "0.1.0"
+dependencies = ["torchaudio", "lightning", "soundfile>=0.13.1,<0.14", "tensorboard", "pthflops>=0.4.2,<0.5"]
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[tool.pixi.pypi-dependencies]
+asr_numbers = { path = ".", editable = true }
+torch = { version = ">=2.5.1", index = "https://download.pytorch.org/whl/cu124" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.system-requirements]
+cuda = "12.4"
+
+[tool.pixi.dependencies]
+ipykernel = ">=6.29.5,<7"
+ffmpeg-python = ">=0.2.0,<0.3"
+sox = "*"
+requests = ">=2.32.3,<3"
+librosa = ">=0.10.2.post1,<0.11"
+matplotlib = ">=3.10.1,<4"
+jupyter = ">=1.1.1,<2"
+levenshtein = ">=0.27.1,<0.28"
+pandas = ">=2.2.3,<3"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/foo"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
