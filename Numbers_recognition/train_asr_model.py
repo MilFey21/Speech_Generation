@@ -210,13 +210,13 @@ class CompactASRModel(nn.Module):
         self.bn5 = nn.BatchNorm2d(512)
         self.pool5 = nn.MaxPool2d(2, 2)
         
-        self.conv6 = nn.Conv2d(512, 512, kernel_size=3, stride=1, padding=1)
-        self.bn6 = nn.BatchNorm2d(512)
+        self.conv6 = nn.Conv2d(512, 256, kernel_size=3, stride=1, padding=1)
+        self.bn6 = nn.BatchNorm2d(256)
         
         self.adaptive_pool = nn.AdaptiveAvgPool2d((3, 6))
         self.dropout1 = nn.Dropout(0.3)
         
-        self.flattened_size = 512 * 3 * 6
+        self.flattened_size = 256 * 3 * 6
         self.fc1 = nn.Linear(self.flattened_size, hidden_size)
         self.dropout2 = nn.Dropout(0.4)
         
@@ -539,7 +539,7 @@ def main():
     model.train()
     
     best_val_cer = float('inf')
-    num_epochs = 30
+    num_epochs = 20
     
     if torch.cuda.is_available():
         torch.backends.cudnn.benchmark = True
